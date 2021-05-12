@@ -330,7 +330,7 @@ jangan lupa koment
                                                     >
                                                         <!-- Modal inner -->
                                                         <div
-                                                            class="inline-block align-middle bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all md:mx-0 sm:my-5 sm:mx-5 sm:align-middle sm:max-w-lg sm:w-full sm:p-6"
+                                                            class="inline-block align-middle bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all md:mx-0 sm:my-5 sm:mx-5 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6"
                                                             @click.away="like = false"
                                                             x-transition:enter="motion-safe:ease-out duration-300"
                                                             x-transition:enter-start="opacity-0 scale-90"
@@ -354,36 +354,36 @@ jangan lupa koment
                                                                     How Much?
                                                                 </h3>
                                                                 <div class="mt-8 text-center">
-                                                                    <div class="flex my-3 py-3">
+                                                                    <div class="flex justify-center my-3 py-3 overflow-auto">
                                                                         <span x-data="counter1()" class="relative inline-block">
                                                                             <span x-on:click="decrement1()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment1()" style="width: 400px" class="cursor-pointer" src="https://timeline.line.me/img/likes_v2/default/like_1003.png" alt="">
-                                                                            <span x-text="count1" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment1()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1003.png" alt="">
+                                                                            <span x-text="count1" class="absolute bottom-0 right-0 mt-0 sm:mt-5 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                         <span x-data="counter2()" class="relative inline-block mx-2">
                                                                             <span x-on:click="decrement2()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment2()" style="width: 400px" class="cursor-pointer" class="w-64" src="https://timeline.line.me/img/likes_v2/default/like_1001.png" alt="">
-                                                                            <span x-text="count2" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment2()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1001.png" alt="">
+                                                                            <span x-text="count2" class="absolute bottom-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                         <span x-data="counter3()" class="relative inline-block mx-2">
                                                                             <span x-on:click="decrement3()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment3()" style="width: 400px" class="cursor-pointer" class="w-64" src="https://timeline.line.me/img/likes_v2/default/like_1002.png" alt="">
-                                                                            <span x-text="count3" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment3()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1002.png" alt="">
+                                                                            <span x-text="count3" class="absolute bottom-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                         <span x-data="counter4()" class="relative inline-block mx-2">
                                                                             <span x-on:click="decrement4()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment4()" style="width: 400px" class="cursor-pointer" class="w-64" src="https://timeline.line.me/img/likes_v2/default/like_1004.png" alt="">
-                                                                            <span x-text="count4" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment4()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1004.png" alt="">
+                                                                            <span x-text="count4" class="absolute bottom-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                         <span x-data="counter5()" class="relative inline-block mx-2">
                                                                             <span x-on:click="decrement5()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment5()" style="width: 400px" class="cursor-pointer" class="w-64" src="https://timeline.line.me/img/likes_v2/default/like_1006.png" alt="">
-                                                                            <span x-text="count5" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment5()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1006.png" alt="">
+                                                                            <span x-text="count5" class="absolute bottom-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                         <span x-data="counter6()" class="relative inline-block mx-2">
                                                                             <span x-on:click="decrement6()" class="absolute top-1.5 -left-3 cursor-pointer inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 rounded-full">-</span>
-                                                                            <img x-on:click="increment6()" style="width: 400px" class="cursor-pointer" class="w-64" src="https://timeline.line.me/img/likes_v2/default/like_1005.png" alt="">
-                                                                            <span x-text="count6" class="absolute bottom-1.5 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
+                                                                            <img x-on:click="increment6()" class="cursor-pointer max-w-sm sm:w-20" src="https://timeline.line.me/img/likes_v2/default/like_1005.png" alt="">
+                                                                            <span x-text="count6" class="absolute bottom-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">99</span>
                                                                         </span>
                                                                     </div>
                                                                 </div>
