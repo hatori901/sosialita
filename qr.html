@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Code</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login Sosialita</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -32,22 +32,153 @@
         *{
             font-family: 'Poppins', sans-serif;
         }
+        .timer{
+            display:flex;
+        }
+        .timer h1 + h1:before{
+            content:":"
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </head>
 <body>
-    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-        <h1 class="my-3 text-center text-3xl text-green-600">Line Booster</h1>
-        <h2 class="mt-6 text-center text-2xl font-extrabold text-gray-900">
-        Scan This QR Code on Your Line Apps
-        </h2>
-    </div>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
 
+  
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div class="bg-white text-center py-3 px-2 shadow sm:rounded-lg sm:px-10">
-            <img src="https://www.suaraaktual.co/foto_berita/46a-guide-to-qr-codes-and-how-to-scan-qr-codes-2.png" alt="">
+      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-5xl text-center text-green-500">Line Booster</h1>
+            <h2 class="mt-6 text-center text-xl font-extrabold text-gray-900">
+              QR Code Login
+            </h2>
+          </div>
+        <div class="space-y-6">
+          <div>
+            <div class="mt-1">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/QR_code_for_mobile_English_Wikipedia.svg/1200px-QR_code_for_mobile_English_Wikipedia.svg.png" alt="" class="w-48 mx-auto">
+              <div class="flex justify-center items-center">
+                <p class="mx-2">Time Remaining</p>
+                <div class="timer" x-data="timer(new Date().setMinutes(new Date().getMinutes() + 2))" x-init="init();">
+                    <h1 x-text="time().minutes"></h1>
+                    <h1 x-text="time().seconds"></h1>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+              Login Using Line App
+            </button>
+          </div>
+
         </div>
+  
+        <div class="mt-3">
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-300"></div>
+            </div>
+            <div class="relative flex justify-center text-sm">
+              <span class="px-2 bg-white text-gray-500">
+                How to scan QR codes
+              </span>
+            </div>
+          </div>
+          <div x-data="{ open: false }" class="pt-6">
+            <dt class="text-sm">
+              <button type="button" x-description="Expand/collapse question button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" @click="open = !open" aria-expanded="true" x-bind:aria-expanded="open.toString()">
+                <span class="font-medium text-gray-900">
+                  QR Code?
+                </span>
+                <span class="ml-6 h-7 flex items-center">
+                    <svg class="h-6 w-6 transform -rotate-180" x-state:on="Open" x-state:off="Closed" :class="{ '-rotate-180': open, 'rotate-0': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </span>
+              </button>
+            </dt>
+            <dd class="mt-2 pr-12" id="faq-0" x-show="open">
+              <p class="text-base text-gray-500">
+                Open the QR code reader on the Android or iOS version of LINE and scan this QR code.
+              </p>
+            </dd>
+          </div>
+          <div x-data="{ open: false }" class="pt-6">
+            <dt class="text-sm">
+              <button type="button" x-description="Expand/collapse question button" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" @click="open = !open" aria-expanded="true" x-bind:aria-expanded="open.toString()">
+                <span class="font-medium text-gray-900">
+                  Login Button?
+                </span>
+                <span class="ml-6 h-7 flex items-center">
+                    <svg class="h-6 w-6 transform -rotate-180" x-state:on="Open" x-state:off="Closed" :class="{ '-rotate-180': open, 'rotate-0': !(open) }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </span>
+              </button>
+            </dt>
+            <dd class="mt-2 pr-12" id="faq-0" x-show="open">
+              <p class="text-base text-gray-500">
+                Click Login Using Line App, and you will redirect to Line App
+              </p>
+            </dd>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+  <script>
+    function timer(expiry) {
+      return {
+          expiry: expiry,
+          remaining:null,
+          init() {
+          this.setRemaining()
+          setInterval(() => {
+              this.setRemaining();
+          }, 1000);
+          },
+          setRemaining() {
+          const diff = this.expiry - new Date().getTime();
+          this.remaining =  parseInt(diff / 1000);
+          },
+          days() {
+          return {
+              value:this.remaining / 86400,
+              remaining:this.remaining % 86400
+          };
+          },
+          hours() {
+          return {
+              value:this.days().remaining / 3600,
+              remaining:this.days().remaining % 3600
+          };
+          },
+          minutes() {
+              return {
+              value:this.hours().remaining / 60,
+              remaining:this.hours().remaining % 60
+          };
+          },
+          seconds() {
+              return {
+              value:this.minutes().remaining,
+          };
+          },
+          format(value) {
+          return ("0" + parseInt(value)).slice(-2)
+          },
+          time(){
+              return {
+              days:this.format(this.days().value),
+              hours:this.format(this.hours().value),
+              minutes:this.format(this.minutes().value),
+              seconds:this.format(this.seconds().value),
+          }
+          },
+      }
+      }
+
+</script>
 </body>
 </html>

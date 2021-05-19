@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <title>Login Sosialita</title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
@@ -32,22 +32,107 @@
         *{
             font-family: 'Poppins', sans-serif;
         }
+        .timer{
+            display:flex;
+        }
+        .timer h1 + h1:before{
+            content:":"
+        }
     </style>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </head>
 <body>
-    <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h1 class="my-3 text-center text-3xl text-green-600">Line Booster</h1>
-        </div>
+<div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
 
-        <div class="mt-8 mx-auto sm:w-full sm:max-w-md">
-            <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <label
-            for="enter-pin"
-            class="block text-xl mb-5 text-gray-700 font-extrabold text-center">Input This Pin in Your Line Apps</label>
-            <input type="number" value="188922" name="pin" class="mx-auto shadow-sm h-14 w-1/2 tracking-widest font-bold text-3xl text-center appearance-none focus:ring-green-500 focus:border-green-500 block border-gray-300 rounded-md" readonly>
+  
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+        <div class="sm:mx-auto sm:w-full sm:max-w-md">
+            <h1 class="text-5xl text-center text-green-500">Line Booster</h1>
+            <h2 class="mt-6 text-center text-xl font-extrabold text-gray-900">
+              Your verification code
+            </h2>
+            <p class="text-xs text-center my-5">This verification code helps keep your LINE account secure.</p>
+          </div>
+        <div class="space-y-6">
+          <div>
+            <div class="mt-1">
+                <div class="mx-auto border border-gray-400 py-5 px-3">
+                    <h2 class="text-5xl text-center font-bold text-green-500"> 0004</h2>
+                    <div class="flex justify-center items-center mt-5">
+                        <p class="mx-2">Time Remaining</p>
+                        <div class="timer" x-data="timer(new Date().setMinutes(new Date().getMinutes() + 1))" x-init="init();">
+                            <h1 x-text="time().minutes"></h1>
+                            <h1 x-text="time().seconds"></h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+  
+  
+          <div class="mt-5">
+            <p>Enter this verification code into LINE on your Android or iOS device.</p>
+          </div>
         </div>
+        <div class="text-center mt-5">
+            <a href="" class="text-center text-blue-300 font-normal">Log in to another account</a>
+        </div>
+      </div>
     </div>
+  </div>
+  <script>
+      function timer(expiry) {
+        return {
+            expiry: expiry,
+            remaining:null,
+            init() {
+            this.setRemaining()
+            setInterval(() => {
+                this.setRemaining();
+            }, 1000);
+            },
+            setRemaining() {
+            const diff = this.expiry - new Date().getTime();
+            this.remaining =  parseInt(diff / 1000);
+            },
+            days() {
+            return {
+                value:this.remaining / 86400,
+                remaining:this.remaining % 86400
+            };
+            },
+            hours() {
+            return {
+                value:this.days().remaining / 3600,
+                remaining:this.days().remaining % 3600
+            };
+            },
+            minutes() {
+                return {
+                value:this.hours().remaining / 60,
+                remaining:this.hours().remaining % 60
+            };
+            },
+            seconds() {
+                return {
+                value:this.minutes().remaining,
+            };
+            },
+            format(value) {
+            return ("0" + parseInt(value)).slice(-2)
+            },
+            time(){
+                return {
+                days:this.format(this.days().value),
+                hours:this.format(this.hours().value),
+                minutes:this.format(this.minutes().value),
+                seconds:this.format(this.seconds().value),
+            }
+            },
+        }
+        }
+
+  </script>
 </body>
 </html>
